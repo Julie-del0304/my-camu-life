@@ -1,0 +1,811 @@
+export interface Subject {
+  code: string;
+  name: string;
+  credits?: number;
+  type: string;
+  category: string;
+}
+
+export interface Semester {
+  name: string;
+  subjects: Subject[];
+}
+
+export interface Department {
+  name: string;
+  icon: string;
+  semesters: Record<number, Semester>;
+}
+
+export const syllabusData: Record<string, Department> = {
+  cse: {
+    name: "Computer Science & Engineering",
+    icon: "💻",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 3, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3152", name: "Heritage of Tamils", credits: 1, type: "Theory", category: "Language" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+          { code: "GE3172", name: "English Laboratory", credits: 1, type: "Practical", category: "English" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "HS3251", name: "Professional English - II", credits: 2, type: "Theory", category: "Humanities" },
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3256", name: "Physics for Information Science", credits: 3, type: "Theory", category: "Physics" },
+          { code: "BE3251", name: "Basic Electrical and Electronics Engineering", credits: 3, type: "Theory", category: "Electronics" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Graphics" },
+          { code: "CS3251", name: "Programming in C", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3252", name: "Tamil and Technology", credits: 1, type: "Theory", category: "Language" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Engineering" },
+          { code: "CS3271", name: "Programming in C Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "GE3272", name: "Communication Laboratory", credits: 2, type: "Practical", category: "Language" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3354", name: "Discrete Mathematics", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "CS3351", name: "Digital Principles and Computer Organization", credits: 4, type: "Theory", category: "Core" },
+          { code: "CS3352", name: "Foundations of Data Science", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3301", name: "Data Structures", credits: 3, type: "Theory", category: "Programming" },
+          { code: "CS3391", name: "Object Oriented Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "CS3361", name: "Data Science Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "GE3361", name: "Professional Development", credits: 1, type: "Theory", category: "Skill" },
+          { code: "CS3311", name: "Data Structures Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CS3381", name: "Object Oriented Programming Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "CS3452", name: "Theory of Computation", credits: 3, type: "Theory", category: "Mathematics" },
+          { code: "CS3401", name: "Algorithms", credits: 4, type: "Theory", category: "Core" },
+          { code: "CS3492", name: "Database Management Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3491", name: "Artificial Intelligence and Machine Learning", credits: 4, type: "Theory", category: "Core" },
+          { code: "CS3451", name: "Introduction to Operating Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "CS3481", name: "Database Management Systems Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CS3461", name: "Operating Systems Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "CS3591", name: "Computer Networks", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3501", name: "Compiler Design", credits: 4, type: "Theory", category: "Core" },
+          { code: "CB3491", name: "Cryptography and Cyber Security", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3551", name: "Distributed Computing", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3552", name: "Networks Laboratory", credits: 3, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "CCS356", name: "Object Oriented Software Engineering", credits: 4, type: "Theory", category: "Core" },
+          { code: "CS3691", name: "Embedded Systems and IoT", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3603", name: "Software Testing", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CS3651", name: "Mobile Application Development Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CS3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "CS3701", name: "Machine Learning", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371C", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CS3751", name: "Machine Learning Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CS3781", name: "Project Work", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "CS3801", name: "Human Computer Interaction", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE381A", name: "Professional Elective VI", credits: 3, type: "Theory", category: "Elective" },
+          { code: "OME382A", name: "Open Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CS3881", name: "Project Work", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  it: {
+    name: "Information Technology",
+    icon: "🌐",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 3, type: "Theory", category: "Humanities" },
+          { code: "GE3152", name: "Heritage of Tamils", credits: 1, type: "Theory", category: "Language" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+          { code: "GE3172", name: "English Laboratory", credits: 1, type: "Practical", category: "Skill" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3256", name: "Physics for Information Science", credits: 3, type: "Theory", category: "Core" },
+          { code: "BE3251", name: "Basic Electrical and Electronics Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Graphics" },
+          { code: "CS3251", name: "Programming in C", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3252", name: "Tamil and Technology", credits: 1, type: "Theory", category: "Language" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CS3271", name: "Programming in C Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "GE3272", name: "Communication Laboratory", credits: 2, type: "Practical", category: "Skill" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3354", name: "Discrete Mathematics", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "IT3301", name: "Object Oriented Programming", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3302", name: "Data Structures", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3303", name: "Digital Principles and Computer Organization", credits: 4, type: "Theory", category: "Core" },
+          { code: "IT3304", name: "Foundations of Data Science", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3361", name: "Data Structures Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "IT3381", name: "Object Oriented Programming Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "GE3361", name: "Professional Development", credits: 1, type: "Theory", category: "Skill" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "IT3401", name: "Algorithms", credits: 4, type: "Theory", category: "Core" },
+          { code: "IT3402", name: "Database Management Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3403", name: "Operating Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3404", name: "Artificial Intelligence", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "IT3461", name: "Database Management Systems Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "IT3481", name: "Operating Systems Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "IT3501", name: "Web Technology", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3502", name: "Computer Networks", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3503", name: "Software Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3504", name: "Information Security", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3551", name: "Web Technology Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "IT3552", name: "Networks Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "IT3601", name: "Cloud Computing", credits: 3, type: "Theory", category: "Core" },
+          { code: "IT3602", name: "Mobile Application Development", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "IT3651", name: "Mobile Application Development Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "IT3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "IT3701", name: "Data Analytics", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "IT3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "IT3801", name: "Internet of Things", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "IT3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  ece: {
+    name: "Electronics & Communication Engineering",
+    icon: "📡",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3152", name: "Professional English - I", credits: 3, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3152", name: "Heritage of Tamils", credits: 1, type: "Theory", category: "Language" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+          { code: "GE3172", name: "English Laboratory", credits: 1, type: "Practical", category: "Skill" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "HS3252", name: "Professional English-II", credits: 2, type: "Theory", category: "Humanities" },
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Core" },
+          { code: "PH3251", name: "Physics for Electronics Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "BE3254", name: "Electrical and Instrumentation Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Core" },
+          { code: "EC3251", name: "Circuit Analysis", credits: 4, type: "Theory", category: "Core" },
+          { code: "GE3252", name: "Tamils and Technology", credits: 2, type: "Theory", category: "Core" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "EC3271", name: "Circuits Analysis Laboratory", credits: 1, type: "Practical", category: "Core" },
+          { code: "GE3272", name: "Communication Laboratory", credits: 2, type: "Practical", category: "Skill" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3355", name: "Random Processes and Linear Algebra", credits: 4, type: "Theory", category: "Core" },
+          { code: "CS3353", name: "C Programming and Data Structures", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3354", name: "Signals and Systems", credits: 4, type: "Theory", category: "Core" },
+          { code: "EC3353", name: "Electronic Devices and Circuits", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3351", name: "Control Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3352", name: "Digital Systems Design", credits: 4, type: "Theory", category: "Core" },
+          { code: "EC3361", name: "Electronic Devices and Circuits Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CS3362", name: "C Programming and Data Structures Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "GE3361", name: "Professional Development Laboratory", credits: 1, type: "Practical", category: "Core" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "EC3452", name: "Electromagnetic Fields", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3401", name: "Network and Security", credits: 4, type: "Theory", category: "Core" },
+          { code: "EC3451", name: "Linear Integrated Circuits", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3492", name: "Digital Signal Processing", credits: 4, type: "Theory", category: "Core" },
+          { code: "EC3491", name: "Communication Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Science and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "EC3461", name: "Communication Systems Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "EC3462", name: "Linear Integrated Circuits Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "EC3501", name: "Wireless Communication", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3502", name: "VLSI Design", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3503", name: "Microprocessors and Microcontrollers", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3551", name: "VLSI Design Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "EC3552", name: "Microprocessors Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "EC3601", name: "Embedded Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "EC3602", name: "Optical Communication", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EC3651", name: "Embedded Systems Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "EC3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EC3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EC3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  eee: {
+    name: "Electrical & Electronics Engineering",
+    icon: "⚡",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 3, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3251", name: "Physics for Electrical Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3251", name: "Electric Circuit Analysis", credits: 4, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Core" },
+          { code: "EE3252", name: "Electrical Machines - I", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "EE3271", name: "Electric Circuit Analysis Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3355", name: "Transforms and Partial Differential Equations", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "EE3301", name: "Electromagnetic Theory", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3302", name: "Electronic Devices and Circuits", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3303", name: "Electrical Machines - II", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3391", name: "Data Structures and OOPS", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3311", name: "Electrical Machines Laboratory-I", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CS3363", name: "Data Structures and OOPS Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "GE3361", name: "Professional Development", credits: 1, type: "Practical", category: "Core" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Science" },
+          { code: "EE3401", name: "Transmission and Distribution", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3402", name: "Linear Integrated Circuits", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3403", name: "Measurements and Instrumentation", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3405", name: "Electrical Machines - II", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3404", name: "Microprocessor and Microcontroller", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3412", name: "Linear and Digital Circuits Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "EE3411", name: "Electrical Machines Laboratory-II", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "EE3413", name: "Microprocessor and Microcontroller Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "EE3501", name: "Power System Analysis", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3591", name: "Power Electronics", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3503", name: "Control Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3511", name: "Power Electronics Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "EE3512", name: "Control and Instrumentation Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "EE3601", name: "Power System Protection", credits: 3, type: "Theory", category: "Core" },
+          { code: "EE3602", name: "Renewable Energy Sources", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EE3651", name: "Power Systems Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "EE3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EE3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "EE3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  mech: {
+    name: "Mechanical Engineering",
+    icon: "⚙️",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 4, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3252", name: "Physics for Mechanical Sciences", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3251", name: "Engineering Mechanics", credits: 4, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Core" },
+          { code: "ME3252", name: "Manufacturing Processes", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3391", name: "Transforms and Partial Differential Equations", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "ME3301", name: "Engineering Thermodynamics", credits: 4, type: "Theory", category: "Core" },
+          { code: "ME3302", name: "Fluid Mechanics and Machinery", credits: 4, type: "Theory", category: "Core" },
+          { code: "ME3303", name: "Manufacturing Technology I", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3304", name: "Engineering Materials and Metallurgy", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3381", name: "Computer Aided Machine Drawing", credits: 2, type: "Practical", category: "Core" },
+          { code: "ME3361", name: "Manufacturing Technology Laboratory I", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "ME3401", name: "Kinematics of Machinery", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3402", name: "Strength of Materials", credits: 4, type: "Theory", category: "Core" },
+          { code: "ME3403", name: "Manufacturing Technology II", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3404", name: "Thermal Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "ME3461", name: "Strength of Materials Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "ME3462", name: "Manufacturing Technology Laboratory II", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "ME3501", name: "Design of Machine Elements", credits: 4, type: "Theory", category: "Core" },
+          { code: "ME3502", name: "Heat and Mass Transfer", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3503", name: "Dynamics of Machinery", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3551", name: "Thermal Engineering Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "ME3552", name: "Dynamics Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "ME3601", name: "Design of Transmission Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "ME3602", name: "CAD/CAM", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "ME3651", name: "CAD/CAM Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "ME3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "ME3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "ME3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  civil: {
+    name: "Civil Engineering",
+    icon: "🏗️",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 4, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "CE3201", name: "Mechanics of Solids", credits: 4, type: "Theory", category: "Core" },
+          { code: "CE3202", name: "Surveying", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Core" },
+          { code: "CE3203", name: "Engineering Geology", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CE3271", name: "Surveying Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3391", name: "Transforms and Partial Differential Equations", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "CE3301", name: "Structural Analysis I", credits: 4, type: "Theory", category: "Core" },
+          { code: "CE3302", name: "Fluid Mechanics", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3303", name: "Concrete Technology", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3304", name: "Building Materials and Construction", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3361", name: "Fluid Mechanics Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CE3362", name: "Concrete Technology Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "CE3401", name: "Structural Analysis II", credits: 4, type: "Theory", category: "Core" },
+          { code: "CE3402", name: "Geotechnical Engineering I", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3403", name: "Environmental Engineering I", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3404", name: "Highway Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "CE3461", name: "Geotechnical Engineering Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CE3462", name: "Highway Engineering Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "CE3501", name: "Design of Reinforced Concrete Structures", credits: 4, type: "Theory", category: "Core" },
+          { code: "CE3502", name: "Geotechnical Engineering II", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3503", name: "Environmental Engineering II", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3551", name: "Environmental Engineering Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CE3552", name: "Computer Aided Design Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "CE3601", name: "Design of Steel Structures", credits: 3, type: "Theory", category: "Core" },
+          { code: "CE3602", name: "Estimation and Quantity Surveying", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CE3651", name: "Design Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "CE3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CE3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "CE3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+  aids: {
+    name: "Artificial Intelligence & Data Science",
+    icon: "🤖",
+    semesters: {
+      1: {
+        name: "Semester I",
+        subjects: [
+          { code: "HS3151", name: "Professional English - I", credits: 3, type: "Theory", category: "Humanities" },
+          { code: "MA3151", name: "Matrices and Calculus", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3151", name: "Engineering Physics", credits: 3, type: "Theory", category: "Physics" },
+          { code: "CY3151", name: "Engineering Chemistry", credits: 3, type: "Theory", category: "Chemistry" },
+          { code: "GE3151", name: "Problem Solving and Python Programming", credits: 3, type: "Theory", category: "Programming" },
+          { code: "GE3152", name: "Heritage of Tamils", credits: 1, type: "Theory", category: "Language" },
+          { code: "GE3171", name: "Problem Solving and Python Programming Laboratory", credits: 2, type: "Practical", category: "Programming" },
+          { code: "BS3171", name: "Physics and Chemistry Laboratory", credits: 2, type: "Practical", category: "Science" },
+          { code: "GE3172", name: "English Laboratory", credits: 1, type: "Practical", category: "Skill" },
+        ],
+      },
+      2: {
+        name: "Semester II",
+        subjects: [
+          { code: "MA3251", name: "Statistics and Numerical Methods", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "PH3256", name: "Physics for Information Science", credits: 3, type: "Theory", category: "Core" },
+          { code: "BE3251", name: "Basic Electrical and Electronics Engineering", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3251", name: "Engineering Graphics", credits: 4, type: "Theory", category: "Core" },
+          { code: "AD3251", name: "Data Exploration and Visualization", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3271", name: "Engineering Practices Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "AD3271", name: "Data Exploration and Visualization Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      3: {
+        name: "Semester III",
+        subjects: [
+          { code: "MA3354", name: "Discrete Mathematics", credits: 4, type: "Theory", category: "Mathematics" },
+          { code: "AD3301", name: "Data Structures", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3302", name: "Foundations of AI", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3303", name: "Database Management Systems", credits: 3, type: "Theory", category: "Core" },
+          { code: "CS3391", name: "Object Oriented Programming", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3361", name: "Data Structures Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "CS3381", name: "Object Oriented Programming Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "GE3361", name: "Professional Development", credits: 1, type: "Theory", category: "Skill" },
+        ],
+      },
+      4: {
+        name: "Semester IV",
+        subjects: [
+          { code: "AD3401", name: "Machine Learning", credits: 4, type: "Theory", category: "Core" },
+          { code: "AD3402", name: "Deep Learning", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3403", name: "Natural Language Processing", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3404", name: "Big Data Analytics", credits: 3, type: "Theory", category: "Core" },
+          { code: "GE3451", name: "Environmental Sciences and Sustainability", credits: 2, type: "Theory", category: "Core" },
+          { code: "AD3461", name: "Machine Learning Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+          { code: "AD3462", name: "Deep Learning Laboratory", credits: 1.5, type: "Practical", category: "Core" },
+        ],
+      },
+      5: {
+        name: "Semester V",
+        subjects: [
+          { code: "AD3501", name: "Computer Vision", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3502", name: "Reinforcement Learning", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3503", name: "Cloud Computing", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3551", name: "Computer Vision Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "AD3552", name: "Cloud Computing Laboratory", credits: 2, type: "Practical", category: "Core" },
+        ],
+      },
+      6: {
+        name: "Semester VI",
+        subjects: [
+          { code: "AD3601", name: "AI in Healthcare", credits: 3, type: "Theory", category: "Core" },
+          { code: "AD3602", name: "Edge AI and IoT", credits: 3, type: "Theory", category: "Core" },
+          { code: "PE361A", name: "Professional Elective I", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE361B", name: "Professional Elective II", credits: 3, type: "Theory", category: "Elective" },
+          { code: "AD3651", name: "AI Applications Laboratory", credits: 2, type: "Practical", category: "Core" },
+          { code: "AD3681", name: "Mini Project", credits: 2, type: "Project", category: "Project" },
+        ],
+      },
+      7: {
+        name: "Semester VII",
+        subjects: [
+          { code: "MG3701", name: "Principles of Management", credits: 3, type: "Theory", category: "Management" },
+          { code: "PE371A", name: "Professional Elective III", credits: 3, type: "Theory", category: "Elective" },
+          { code: "PE371B", name: "Professional Elective IV", credits: 3, type: "Theory", category: "Elective" },
+          { code: "AD3781", name: "Project Work Phase I", credits: 6, type: "Project", category: "Project" },
+        ],
+      },
+      8: {
+        name: "Semester VIII",
+        subjects: [
+          { code: "PE381A", name: "Professional Elective V", credits: 3, type: "Theory", category: "Elective" },
+          { code: "AD3881", name: "Project Work Phase II", credits: 10, type: "Project", category: "Project" },
+        ],
+      },
+    },
+  },
+};
+
+export const importantQuestions: Record<string, string[]> = {
+  HS3151: [
+    "Explain the importance of professional communication in engineering.",
+    "Discuss the various types of technical writing.",
+    "What are the key elements of effective presentation skills?",
+    "Analyze the role of English in global communication.",
+    "Describe the process of writing technical reports.",
+  ],
+  MA3151: [
+    "Find the rank of the matrix using elementary transformations.",
+    "Solve the system of linear equations using Cramer's rule.",
+    "Find the eigenvalues and eigenvectors of the given matrix.",
+    "Evaluate the limit using L'Hospital's rule.",
+    "Find the maximum and minimum values of the function.",
+  ],
+  GE3151: [
+    "Explain the features of Python programming language.",
+    "Write a Python program to implement linear search algorithm.",
+    "Discuss the different data types in Python with examples.",
+    "What are the advantages of object-oriented programming?",
+    "Write a program to handle exceptions in Python.",
+  ],
+  CS3351: [
+    "Explain the Von Neumann architecture with a neat diagram.",
+    "Discuss the different types of memory organization.",
+    "What is pipelining? Explain its advantages and disadvantages.",
+    "Describe the working of cache memory with mapping techniques.",
+    "Explain the instruction cycle with timing diagrams.",
+  ],
+  CS3401: [
+    "Analyze the time complexity of merge sort algorithm.",
+    "Explain the working of Dijkstra's shortest path algorithm.",
+    "What is dynamic programming? Solve the 0/1 knapsack problem.",
+    "Discuss the different tree traversal algorithms.",
+    "Explain the concept of greedy algorithms with examples.",
+  ],
+  CS3501: [
+    "Design a finite automaton for the given regular expression.",
+    "Prove that the language is context-free using pumping lemma.",
+    "Construct a Turing machine for the given problem.",
+    "Explain the Chomsky hierarchy of languages.",
+    "What is decidability? Discuss with examples.",
+  ],
+};
+
+export const translations = {
+  en: {
+    academicPortal: "Academic Excellence Portal",
+    regulation: "2021 Regulation • Comprehensive Syllabus • Question Bank • Faculty Resources",
+    empowering: ">>> EMPOWERING ACADEMIC SUCCESS ACROSS ALL DEPARTMENTS <<<",
+    facultyAccess: "Faculty Access",
+    studentPortal: "Student Portal",
+    adminPanel: "Admin Panel",
+    departments: "Academic Departments",
+    cse: "Computer Science & Engineering",
+    cseDetails: "8 Semesters • 160+ Subjects",
+    it: "Information Technology",
+    itDetails: "8 Semesters • 155+ Subjects",
+    ece: "Electronics & Communication",
+    eceDetails: "8 Semesters • 150+ Subjects",
+    eee: "Electrical & Electronics",
+    eeeDetails: "8 Semesters • 145+ Subjects",
+    mech: "Mechanical Engineering",
+    mechDetails: "8 Semesters • 140+ Subjects",
+    civil: "Civil Engineering",
+    civilDetails: "8 Semesters • 135+ Subjects",
+    aids: "AI & Data Science",
+    aidsDetails: "8 Semesters • 165+ Subjects",
+    allDepts: "All Departments",
+    completePortal: "Complete Portal",
+    comprehensiveAccess: "Comprehensive Access",
+    syllabus: "Complete Syllabus",
+    syllabusDesc: "2021 Regulation syllabus for all departments with detailed course outcomes",
+    questions: "Question Banks",
+    questionsDesc: "Important questions, previous year papers, and model question papers",
+    resources: "Faculty Resources",
+    resourcesDesc: "Teaching materials, lesson plans, and assessment tools for educators",
+    back: "Back",
+    selectSemester: "Select Semester",
+    semesterSubjects: "Semester Subjects",
+  },
+  ta: {
+    academicPortal: "கல்வி சிறப்பு போர்ட்டல்",
+    regulation: "2021 ஒழுங்குமுறை • விரிவான பாடத்திட்டம் • கேள்வி வங்கி • ஆசிரியர் வளங்கள்",
+    empowering: ">>> அனைத்து துறைகளிலும் கல்வி வெற்றியை வலுப்படுத்துதல் <<<",
+    facultyAccess: "ஆசிரியர் அணுகல்",
+    studentPortal: "மாணவர் போர்ட்டல்",
+    adminPanel: "நிர்வாக பேனல்",
+    departments: "கல்வித் துறைகள்",
+    cse: "கணினி அறிவியல் மற்றும் பொறியியல்",
+    cseDetails: "8 செமஸ்டர்கள் • 160+ பாடங்கள்",
+    it: "தகவல் தொழில்நுட்பம்",
+    itDetails: "8 செமஸ்டர்கள் • 155+ பாடங்கள்",
+    ece: "மின்னணுவியல் மற்றும் தொடர்பு",
+    eceDetails: "8 செமஸ்டர்கள் • 150+ பாடங்கள்",
+    eee: "மின் மற்றும் மின்னணுவியல்",
+    eeeDetails: "8 செமஸ்டர்கள் • 145+ பாடங்கள்",
+    mech: "இயந்திர பொறியியல்",
+    mechDetails: "8 செமஸ்டர்கள் • 140+ பாடங்கள்",
+    civil: "சிவில் பொறியியல்",
+    civilDetails: "8 செமஸ்டர்கள் • 135+ பாடங்கள்",
+    aids: "செயற்கை நுண்ணறிவு மற்றும் தரவு அறிவியல்",
+    aidsDetails: "8 செமஸ்டர்கள் • 165+ பாடங்கள்",
+    allDepts: "அனைத்து துறைகள்",
+    completePortal: "முழுமையான போர்ட்டல்",
+    comprehensiveAccess: "விரிவான அணுகல்",
+    syllabus: "முழுமையான பாடத்திட்டம்",
+    syllabusDesc: "விரிவான பாட விளைவுகளுடன் அனைத்து துறைகளுக்கும் 2021 ஒழுங்குமுறை பாடத்திட்டம்",
+    questions: "கேள்வி வங்கிகள்",
+    questionsDesc: "முக்கியமான கேள்விகள், முந்தைய ஆண்டு தாள்கள் மற்றும் மாதிரி கேள்வித் தாள்கள்",
+    resources: "ஆசிரியர் வளங்கள்",
+    resourcesDesc: "கற்பித்தல் பொருட்கள், பாட திட்டங்கள் மற்றும் கல்வியாளர்களுக்கான மதிப்பீட்டு கருவிகள்",
+    back: "திரும்பு",
+    selectSemester: "செமஸ்டரைத் தேர்ந்தெடுக்கவும்",
+    semesterSubjects: "செமஸ்டர் பாடங்கள்",
+  },
+};
